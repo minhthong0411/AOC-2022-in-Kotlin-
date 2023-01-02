@@ -29,32 +29,25 @@ fun main() {
     }
 
 
-    fun part2(input: List<String>): Int {
+    fun part2(input: List<String>): String {
         var currentCycle = 0
         var xVal = 1
-        var signalStrength = 0
         var crt = ""
         var longString = ""
         input.forEach { command ->
-            println("READ: $command")
+            //println("READ: $command")
             if(command.contains("noop")){
                 currentCycle += 1
-                if(currentCycle % 40 == 20){
-                    signalStrength += (xVal * currentCycle)
-                }
                 if(crt.length in xVal - 1..xVal + 1) crt += "#" else crt += "."
                 if(crt.length % 40 == 0) {
                     longString += crt
                     longString += "\n"
                     crt = ""
                 }
-                println("During Noop cyle curr X: $xVal currCycle: $currentCycle signal: $signalStrength")
-                println(longString)
+                //println("During Noop cyle curr X: $xVal currCycle: $currentCycle signal: $signalStrength")
+                //println(longString)
             }else{
                 currentCycle += 1
-                if(currentCycle % 40 == 20){
-                    signalStrength += (xVal * currentCycle)
-                }
                 if(crt.length in xVal - 1..xVal + 1) crt += "#" else crt += "."
                 if(crt.length % 40 == 0) {
                     longString += crt
@@ -62,12 +55,9 @@ fun main() {
                     crt = ""
                 }
 
-                println("During ADDX first Cylce curr X: $xVal currCycle: $currentCycle signal: $signalStrength")
-                println(longString)
+                //println("During ADDX first Cylce curr X: $xVal currCycle: $currentCycle signal: $signalStrength")
+                //println(longString)
                 currentCycle += 1
-                if(currentCycle % 40 == 20){
-                    signalStrength += (xVal * currentCycle)
-                }
                 if(crt.length in xVal - 1..xVal + 1) crt += "#" else crt += "."
                 if(crt.length % 40 == 0) {
                     longString += crt
@@ -75,12 +65,12 @@ fun main() {
                     crt = ""
                 }
                 xVal += command.split(' ')[1].toInt()
-                println("During ADDX sceond Cylce curr X: $xVal currCycle: $currentCycle signal: $signalStrength")
-                println(longString)
+                //println("During ADDX sceond Cylce curr X: $xVal currCycle: $currentCycle signal: $signalStrength")
+                //println(longString)
             }
         }
-        println(crt)
-        return signalStrength
+        //println(longString)
+        return longString
     }
 
     // test if implementation meets criteria from the description, like:
