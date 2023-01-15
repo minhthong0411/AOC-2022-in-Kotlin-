@@ -104,9 +104,9 @@ fun main() {
         for(level in startBound..endBound) {
             val v = vicinity(sensorLocations, beaconLocations, level, range)
             if(v != -1){
-                FileOutputStream("level.txt", true).bufferedWriter().use { out ->
-                    out.append("FOUND IT at LEVEL: $level POS: $v\n")
-                }
+//                FileOutputStream("level.txt", true).bufferedWriter().use { out ->
+//                    out.append("FOUND IT at LEVEL: $level POS: $v\n")
+//                }
                 //println("FOUND IT at LEVEL: $level")
                 return 4000000UL * v.toULong() + level.toULong()
             }else{
